@@ -2,8 +2,8 @@ services:
   - type: web
     name: bike-rental-api
     runtime: python
-    buildCommand: pip install -r bike_rental_api/requirements.txt
-    startCommand: cd bike_rental_api && python main.py
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app:app --host 0.0.0.0 --port $PORT
     envVars:
       - key: APP_TITLE
         value: Bike Rental Analytics API
@@ -14,7 +14,7 @@ services:
       - key: HOST
         value: 0.0.0.0
       - key: PORT
-        value: 8000
+        value: 10000
       - key: RELOAD
         value: false
       - key: LOG_LEVEL
