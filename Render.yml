@@ -1,0 +1,29 @@
+services:
+  - type: web
+    name: bike-rental-api
+    runtime: python
+    buildCommand: pip install -r bike_rental_api/requirements.txt
+    startCommand: cd bike_rental_api && python main.py
+    envVars:
+      - key: APP_TITLE
+        value: Bike Rental Analytics API
+      - key: APP_VERSION
+        value: 1.0.0
+      - key: APP_DESCRIPTION
+        value: FastAPI backend for Bike Rental Analytics & Demand Prediction
+      - key: HOST
+        value: 0.0.0.0
+      - key: PORT
+        value: 8000
+      - key: RELOAD
+        value: false
+      - key: LOG_LEVEL
+        value: info
+      - key: DATA_PATH
+        value: hour.csv
+      - key: MODEL_PATH
+        value: tuned_xgboost_model.pkl
+      - key: CORS_ORIGINS
+        value: "*"
+      - key: ENV
+        value: production
